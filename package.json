@@ -1,0 +1,24 @@
+{
+  "name": "socketio-node-react",
+  "version": "0.0.1",
+  "description": "app using socketio node and react",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ktk10191/socketio-node-react-practice.git"
+  },
+  "author": "Kyle Knott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ktk10191/socketio-node-react-practice/issues"
+  },
+  "homepage": "https://github.com/ktk10191/socketio-node-react-practice#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "express": "^4.13.3",
+    "react": "^0.13.3"
+  }
+}
