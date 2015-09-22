@@ -4,8 +4,7 @@
   "description": "app using socketio node and react",
   "main": "server.js",
   "scripts": {
-    "prestart": "webpack",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +21,7 @@
     "bootstrap": "^3.3.5",
     "express": "^4.13.3",
     "react": "^0.13.3",
+    "react-d3": "^0.4.0",
     "react-router": "^0.13.3",
     "socket.io": "^1.3.7",
     "socket.io-client": "^1.3.7",

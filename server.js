@@ -1,7 +1,3 @@
-// import express as app from 'express'
-
-// app.use(app.static('./public'))
-
 var express = require('express');
 var _ = require('underscore');
 
@@ -77,7 +73,13 @@ io.sockets.on('connection', function(socket) {
     console.log("Question Asked: '%s'", question.q);
   });
 
+  socket.on('newQuestion', function() {
+    currentQuestion = false;
+    io.sockets.emit('resetQuestion', { currentQuestion: currentQuestion });
+  });
+
   socket.on('answer', function(payload) {
+    console.log(payload);
     results[payload.choice]++;
     io.sockets.emit('results', results);
     console.log("Answer: '%s' - %j", payload.choice, results);
