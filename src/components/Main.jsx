@@ -72,11 +72,12 @@ class Main extends React.Component {
        })
     })
 
-    this.socket.on('results', (data) => {
-      this.setState({ results: data })
-    })
+    this.socket.on('results', (data) => this.setState({ results: data }))
 
-    this.socket.on('resetQuestion', (serverState) => this.updateState(serverState))
+    this.socket.on('resetQuestion', (serverState) => {
+      this.setState(serverState)
+      sessionStorage.answer = ''
+    })
   }
 
   emit(eventName, payload) {

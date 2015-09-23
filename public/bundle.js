@@ -23757,11 +23757,12 @@
 	      });
 
 	      this.socket.on('results', function (data) {
-	        _this.setState({ results: data });
+	        return _this.setState({ results: data });
 	      });
 
 	      this.socket.on('resetQuestion', function (serverState) {
-	        return _this.updateState(serverState);
+	        _this.setState(serverState);
+	        sessionStorage.answer = '';
 	      });
 	    }
 	  }, {
@@ -32264,15 +32265,20 @@
 	    this.setUpChoices = this.setUpChoices.bind(this);
 	    this.select = this.select.bind(this);
 	    this.addChoiceButton = this.addChoiceButton.bind(this);
-	    this.state = {
-	      choices: Object.keys(this.props.question).shift(),
-	      answer: sessionStorage.answer
-	    };
+	    this.state = this.setUpChoices();
 	  }
 
 	  _createClass(Ask, [{
 	    key: 'setUpChoices',
-	    value: function setUpChoices() {}
+	    value: function setUpChoices() {
+	      var choices = Object.keys(this.props.question);
+	      choices.shift();
+
+	      return {
+	        choices: choices,
+	        answer: sessionStorage.answer
+	      };
+	    }
 	  }, {
 	    key: 'select',
 	    value: function select(choice) {
@@ -32286,7 +32292,6 @@
 	  }, {
 	    key: 'addChoiceButton',
 	    value: function addChoiceButton(choice, i) {
-	      console.log(this.state.choices);
 	      var buttonTypes = ['primary', 'success', 'warning', 'danger'];
 	      return _react2['default'].createElement(
 	        'button',
@@ -32442,8 +32447,6 @@
 
 	var _reactD3 = __webpack_require__(259);
 
-	var _reactD32 = _interopRequireDefault(_reactD3);
-
 	var _reactRouter = __webpack_require__(157);
 
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
@@ -32456,12 +32459,26 @@
 
 	    _get(Object.getPrototypeOf(Board.prototype), 'constructor', this).call(this, props);
 
+	    this.stateCreate = this.stateCreate.bind(this);
 	    this.barGraphData = this.barGraphData.bind(this);
+	    this.state = this.stateCreate();
 	  }
 
 	  _createClass(Board, [{
+	    key: 'stateCreate',
+	    value: function stateCreate() {
+	      var choices = Object.keys(this.props.results);
+
+	      return {
+	        choices: choices
+	      };
+	    }
+
+	    /*@TODO Fix the bar graph to either work with this omponent or choose a new one */
+	  }, {
 	    key: 'barGraphData',
 	    value: function barGraphData(results) {
+	      console.log(this.props.results);
 	      return Object.keys(results).map(function (choice) {
 	        return {
 	          label: choice,
@@ -32475,6 +32492,14 @@
 	      return _react2['default'].createElement(
 	        'div',
 	        { id: 'scoreboard' },
+	        _react2['default'].createElement(
+	          _Display2['default'],
+	          { 'if': this.props.status === 'connected' && this.props.currentQuestion },
+	          _react2['default'].createElement(_reactD3.BarChart, { data: this.barGraphData(this.props.results),
+	            title: this.props.currentQuestion.q,
+	            height: window.innerHeight * 0.6,
+	            width: window.innerWidth * 0.9 })
+	        ),
 	        _react2['default'].createElement(
 	          _Display2['default'],
 	          { 'if': this.props.status === 'connected' && !this.props.currentQuestion && this.props.member.type !== 'speaker' },
@@ -32547,12 +32572,6 @@
 	//
 	// module.exports = Board;
 	module.exports = exports['default'];
-	/*<Display if={this.props.status === 'connected' && this.props.currentQuestion}>
-	 <BarChart data={this.barGraphData(this.props.results)}
-	           title={this.props.currentQuestion.q}
-	           height={window.innerHeight * 0.6}
-	           width={window.innerWidth * 0.9} />
-	</Display>*/
 
 /***/ },
 /* 259 */

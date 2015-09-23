@@ -8,14 +8,17 @@ class Ask extends React.Component {
     this.setUpChoices = this.setUpChoices.bind(this)
     this.select = this.select.bind(this)
     this.addChoiceButton = this.addChoiceButton.bind(this)
-    this.state = {
-        choices: Object.keys(this.props.question).shift(),
-        answer: sessionStorage.answer
-    }
+    this.state = this.setUpChoices()
   }
 
   setUpChoices() {
+    var choices = Object.keys(this.props.question)
+    choices.shift()
 
+    return {
+      choices: choices,
+      answer: sessionStorage.answer
+    }
   }
 
   select(choice) {
@@ -28,7 +31,6 @@ class Ask extends React.Component {
   }
 
   addChoiceButton(choice, i) {
-    console.log(this.state.choices)
     var buttonTypes = ['primary', 'success', 'warning', 'danger'];
     return (
       <button key={i}
