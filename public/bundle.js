@@ -23579,6 +23579,8 @@
 
 	var _reactRouter = __webpack_require__(157);
 
+	var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
 	var _componentsMain = __webpack_require__(197);
 
 	var _componentsMain2 = _interopRequireDefault(_componentsMain);
@@ -31330,7 +31332,7 @@
 	                  'li',
 	                  null,
 	                  _react2['default'].createElement(
-	                    _reactRouter2['default'],
+	                    _reactRouter.Link,
 	                    { to: 'home' },
 	                    'Home'
 	                  )
@@ -31339,7 +31341,7 @@
 	                  'li',
 	                  null,
 	                  _react2['default'].createElement(
-	                    _reactRouter2['default'],
+	                    _reactRouter.Link,
 	                    { to: 'speaker' },
 	                    'Speaker'
 	                  )
@@ -31348,7 +31350,7 @@
 	                  'li',
 	                  null,
 	                  _react2['default'].createElement(
-	                    _reactRouter2['default'],
+	                    _reactRouter.Link,
 	                    { to: 'board' },
 	                    'Board'
 	                  )
@@ -31373,7 +31375,7 @@
 	                  'li',
 	                  null,
 	                  _react2['default'].createElement(
-	                    _reactRouter2['default'],
+	                    _reactRouter.Link,
 	                    { to: 'home' },
 	                    'Home'
 	                  )
@@ -31382,7 +31384,7 @@
 	                  'li',
 	                  null,
 	                  _react2['default'].createElement(
-	                    _reactRouter2['default'],
+	                    _reactRouter.Link,
 	                    { to: 'board' },
 	                    'Board'
 	                  )
@@ -31524,7 +31526,7 @@
 	                'View results for question: ',
 	                _react2['default'].createElement('br', null),
 	                _react2['default'].createElement(
-	                  _reactRouter2['default'],
+	                  _reactRouter.Link,
 	                  { to: 'board' },
 	                  this.props.currentQuestion.q
 	                )
@@ -31749,8 +31751,8 @@
 	  }
 
 	  _createClass(Attendance, [{
-	    key: "ddMemberRow",
-	    value: function ddMemberRow(member, i) {
+	    key: "addMemberRow",
+	    value: function addMemberRow(member, i) {
 	      return _react2["default"].createElement(
 	        "tr",
 	        { key: i },
@@ -32052,7 +32054,7 @@
 	              _Display2['default'],
 	              { 'if': !this.props.currentQuestion && this.props.member.type === 'speaker' },
 	              _react2['default'].createElement(
-	                _reactRouter2['default'],
+	                _reactRouter.Link,
 	                { to: 'speaker' },
 	                'Ask a question'
 	              )
@@ -32157,6 +32159,12 @@
 	  }
 
 	  _createClass(Join, [{
+	    key: 'join',
+	    value: function join() {
+	      var memberName = _react2['default'].findDOMNode(this.refs.name).value;
+	      this.props.emit('join', { name: memberName });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement(
@@ -32174,12 +32182,12 @@
 	          'Join'
 	        ),
 	        _react2['default'].createElement(
-	          _reactRouter2['default'],
+	          _reactRouter.Link,
 	          { to: 'speaker' },
 	          'Start the presentation'
 	        ),
 	        _react2['default'].createElement(
-	          _reactRouter2['default'],
+	          _reactRouter.Link,
 	          { to: 'board' },
 	          'Go to the board'
 	        )
@@ -32256,19 +32264,15 @@
 	    this.setUpChoices = this.setUpChoices.bind(this);
 	    this.select = this.select.bind(this);
 	    this.addChoiceButton = this.addChoiceButton.bind(this);
-	    this.state = this.setUpChoices();
+	    this.state = {
+	      choices: Object.keys(this.props.question).shift(),
+	      answer: sessionStorage.answer
+	    };
 	  }
 
 	  _createClass(Ask, [{
 	    key: 'setUpChoices',
-	    value: function setUpChoices() {
-	      var choices = Object.keys(this.props.question);
-	      choices.shift();
-	      this.setState({
-	        choices: choices,
-	        answer: sessionStorage.answer
-	      });
-	    }
+	    value: function setUpChoices() {}
 	  }, {
 	    key: 'select',
 	    value: function select(choice) {
@@ -32282,6 +32286,7 @@
 	  }, {
 	    key: 'addChoiceButton',
 	    value: function addChoiceButton(choice, i) {
+	      console.log(this.state.choices);
 	      var buttonTypes = ['primary', 'success', 'warning', 'danger'];
 	      return _react2['default'].createElement(
 	        'button',
@@ -32483,7 +32488,7 @@
 	          _Display2['default'],
 	          { 'if': this.props.status === 'connected' && !this.props.currentQuestion && this.props.member.type === 'speaker' },
 	          _react2['default'].createElement(
-	            _reactRouter2['default'],
+	            _reactRouter.Link,
 	            { to: 'speaker' },
 	            'Ask a question'
 	          )

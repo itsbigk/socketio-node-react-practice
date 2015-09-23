@@ -4,7 +4,8 @@
   "description": "app using socketio node and react",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "prestart": "webpack",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

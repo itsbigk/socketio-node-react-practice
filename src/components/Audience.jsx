@@ -2,7 +2,7 @@ import React from 'react'
 import Display from './Display'
 import Join from './Join'
 import Ask from './Ask'
-import Link from 'react-router'
+import Router, { Link } from 'react-router'
 
 class Audience extends React.Component {
 
@@ -40,9 +40,6 @@ class Audience extends React.Component {
 }
 
 export default Audience
-
-
-
 
 // var React = require('react')
 // var Display = require('./Display')

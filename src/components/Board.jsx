@@ -1,7 +1,7 @@
 import React from 'react'
 import Display from './Display'
 import BarChart from 'react-d3'
-import Link from 'react-router'
+import Router, { Link } from 'react-router'
 
 class Board extends React.Component {
   constructor(props) {

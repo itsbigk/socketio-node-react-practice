@@ -1,6 +1,6 @@
 //ES6
 import React from 'react'
-import { Router, Route, DefaultRoute, NotFoundRoute } from 'react-router'
+import Router, { Route, DefaultRoute, NotFoundRoute } from 'react-router'
 
 import Main from '../components/Main'
 import Speaker from '../components/Speaker'

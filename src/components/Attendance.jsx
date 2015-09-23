@@ -8,7 +8,7 @@ class Attendance extends React.Component {
     this.addMemberRow = this.addMemberRow.bind(this)
   }
 
-  ddMemberRow(member, i) {
+  addMemberRow(member, i) {
     return (
       <tr key={i}>
         <td>{member.name}</td>

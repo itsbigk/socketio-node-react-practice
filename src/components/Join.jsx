@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'react-router'
+import Router, { Link } from 'react-router'
 
 class Join extends React.Component {
 
@@ -7,6 +7,11 @@ class Join extends React.Component {
     super(props)
 
     this.join = this.join.bind(this)
+  }
+
+  join() {
+    var memberName = React.findDOMNode(this.refs.name).value
+    this.props.emit('join', { name: memberName });
   }
 
   render() {
@@ -23,7 +28,6 @@ class Join extends React.Component {
 }
 
 export default Join
-
 
 // var React = require('react');
 // var Link = require('react-router').Link

@@ -1,6 +1,6 @@
 import React from 'react'
 import Display from './Display'
-import Link from 'react-router'
+import Router, { Link } from 'react-router'
 
 class NavBar extends React.Component {
 

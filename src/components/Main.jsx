@@ -98,9 +98,6 @@ class Main extends React.Component {
 
 export default Main
 
-
-
-
 // var React = require('react')
 // var Router = require('react-router')
 // var RouteHandler = Router.RouteHandler

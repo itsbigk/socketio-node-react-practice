@@ -3,7 +3,7 @@ import Display from './Display'
 import JoinSpeaker from './JoinSpeaker'
 import Attendance from './Attendance'
 import Questions from './Questions'
-import Link from 'react-router'
+import Router, { Link } from 'react-router'
 
 class Speaker extends React.Component {
   constructor(props) {
@@ -46,9 +46,6 @@ class Speaker extends React.Component {
 }
 
 export default Speaker
-
-
-
 
 // var React = require('react')
 // var Display = require('./Display')
