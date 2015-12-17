@@ -65,14 +65,6 @@
 	  _react2['default'].render(_react2['default'].createElement(Handler, null), document.getElementById('app'));
 	});
 
-	// var React = require('react')
-	// var Router = require('react-router')
-	// var routes = require('./routes/routes')
-	//
-	// Router.run(routes, function(Handler) {
-	//   React.render(<Handler />, document.getElementById('app'))
-	// })
-
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
@@ -23611,29 +23603,6 @@
 	);
 
 	exports['default'] = routes;
-
-	// var React = require('react');
-	// var Router = require('react-router');
-	// var Route = Router.Route;
-	// var DefaultRoute = Router.DefaultRoute;
-	// var NotFoundRoute = Router.NotFoundRoute;
-	//
-	// var Main = require('../components/Main')
-	// var Speaker = require('../components/Speaker')
-	// var Audience = require('../components/Audience')
-	// var Board = require('../components/Board')
-	// var Whoops = require('../components/Whoops404')
-	//
-	// var routes = (
-	//   <Route handler={Main}>
-	//     <DefaultRoute name="home" handler={Audience} />
-	//     <Route name="speaker" path="speaker" handler={Speaker} />
-	//     <Route name="board" path="board" handler={Board} />
-	//     <NotFoundRoute handler={Whoops} />
-	//   </Route>
-	// )
-	//
-	// module.exports = routes;
 	module.exports = exports['default'];
 
 /***/ },
@@ -23791,113 +23760,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Main;
-
-	// var React = require('react')
-	// var Router = require('react-router')
-	// var RouteHandler = Router.RouteHandler
-	// var Link = Router.Link
-	// var io = require('socket.io-client')
-	// var Header = require('./Header')
-	// var NavBar = require('./NavBar')
-	//
-	// var Main = React.createClass({
-	//   getInitialState() {
-	//     return {
-	//       status: 'disconnected',
-	//       title: '',
-	//       member: {},
-	//       audience: [],
-	//       speaker: '',
-	//       questions: [],
-	//       currentQuestion: false,
-	//       results: {}
-	//     }
-	//   },
-	//
-	//   componentWillMount() {
-	//     this.socket = io('http://localhost:3000');
-	//     this.socket.on('connect', this.connect);
-	//     this.socket.on('disconnect', this.disconnect);
-	//     this.socket.on('welcome', this.updateState);
-	//     this.socket.on('joined', this.joined);
-	//     this.socket.on('audience', this.updateAudience);
-	//     this.socket.on('start', this.start);
-	//     this.socket.on('end', this.updateState);
-	//     this.socket.on('ask', this.ask);
-	//     this.socket.on('results', this.updateResults);
-	//     this.socket.on('resetQuestion', this.updateState);
-	//   },
-	//
-	//   emit(eventName, payload) {
-	//     this.socket.emit(eventName, payload);
-	//   },
-	//
-	//   connect() {
-	//     var member =  sessionStorage.member ? JSON.parse(sessionStorage.member) : null;
-	//
-	//     if(member && member.type === 'member') {
-	//       this.emit('join', member);
-	//     } else if(member && member.type === 'speaker') {
-	//       this.emit('start', { name: member.name, title: sessionStorage.title });
-	//     }
-	//
-	//     this.setState({ status: 'connected' });
-	//   },
-	//
-	//   disconnect() {
-	//     this.setState({
-	//       status: 'disconnected',
-	//       title: 'disconnected',
-	//       speaker: ''
-	//     });
-	//   },
-	//
-	//   updateState(serverState) {
-	//     this.setState(serverState);
-	//   },
-	//
-	//   joined(member) {
-	//     sessionStorage.member = JSON.stringify(member);
-	//     this.setState({ member: member });
-	//   },
-	//
-	//   updateAudience(newAudience) {
-	//     this.setState({ audience: newAudience });
-	//   },
-	//
-	//   start(presentation) {
-	//     if(this.state.member.type === 'speaker') {
-	//       sessionStorage.title = presentation.title;
-	//     }
-	//     this.setState(presentation);
-	//   },
-	//
-	//   ask(question) {
-	//     sessionStorage.answer = '';
-	//     this.setState({
-	//       currentQuestion: question,
-	//       results: {a:0,b:0,c:0,d:0}
-	//      });
-	//   },
-	//
-	//   updateResults(data) {
-	//     this.setState({ results: data });
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <div>
-	//         <NavBar member={this.state.member} />
-	//         <Header {...this.state} />
-	//         <div className="container">
-	//           <RouteHandler {...this.state} emit={this.emit} />
-	//         </div>
-	//       </div>
-	//     )
-	//   }
-	// })
-	//
-	// module.exports = Main;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31173,39 +31035,6 @@
 	};
 
 	exports['default'] = Header;
-
-	// var React = require('react');
-	// var Display = require('./Display');
-	//
-	// var Header = React.createClass({
-	//   propTypes: {
-	//     title: React.PropTypes.string.isRequired
-	//   },
-	//
-	//   getDefaultProps() {
-	//     return {
-	//       status: 'disconnected'
-	//     }
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <header className="row">
-	//         <div className="col-xs-10">
-	//           <h1>{this.props.title}</h1>
-	//           <Display if={this.props.speaker}>
-	//             <p>by {this.props.speaker}</p>
-	//           </Display>
-	//         </div>
-	//         <div className="col-xs-2">
-	//           <span id="connection-status" className={this.props.status}></span>
-	//         </div>
-	//       </header>
-	//     )
-	//   }
-	// })
-	//
-	// module.exports = Header;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31256,18 +31085,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Display;
-
-	// var React = require('react');
-	//
-	// var Display = React.createClass({
-	//
-	//   render() {
-	//     return (this.props.if) ? <div>{this.props.children}</div> : null;
-	//   }
-	//
-	// });
-	//
-	// module.exports = Display;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31402,43 +31219,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = NavBar;
-
-	// var React = require('react')
-	// var Display = require('./Display')
-	// var Link = require('react-router').Link
-	//
-	// var NavBar = React.createClass({
-	//
-	//   render() {
-	//     return (
-	//       <div>
-	//         <Display if={this.props.member.type === 'speaker'}>
-	//           <nav className="navbar navbar-inverse">
-	//             <div className="container-fluid">
-	//               <ul className="nav navbar-nav">
-	//                 <li><Link to="home">Home</Link></li>
-	//                 <li><Link to="speaker">Speaker</Link></li>
-	//                 <li><Link to="board">Board</Link></li>
-	//               </ul>
-	//             </div>
-	//           </nav>
-	//         </Display>
-	//         <Display if={!this.props.member || this.props.member.type !== 'speaker'}>
-	//           <nav className="navbar navbar-inverse">
-	//             <div className="container-fluid">
-	//               <ul className="nav navbar-nav">
-	//                 <li><Link to="home">Home</Link></li>
-	//                 <li><Link to="board">Board</Link></li>
-	//               </ul>
-	//             </div>
-	//           </nav>
-	//         </Display>
-	//       </div>
-	//     )
-	//   }
-	// });
-	//
-	// module.exports = NavBar
 	module.exports = exports['default'];
 
 /***/ },
@@ -31568,49 +31348,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Speaker;
-
-	// var React = require('react')
-	// var Display = require('./Display')
-	// var JoinSpeaker = require('./JoinSpeaker')
-	// var Attendance = require('./Attendance')
-	// var Questions = require('./Questions')
-	// var Link = require('react-router').Link
-	//
-	// var Speaker = React.createClass({
-	//   newQuestion() {
-	//     this.props.emit('newQuestion', null);
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <div>
-	//         <Display if={this.props.status === 'connected'}>
-	//           <Display if={this.props.member.name && this.props.member.type === 'speaker'}>
-	//             <Display if={!this.props.currentQuestion}>
-	//               <Questions emit={this.props.emit} questions={this.props.questions} />
-	//             </Display>
-	//             <Display if={this.props.currentQuestion}>
-	//               <h2>View results for question: <br></br>
-	//                   <Link to="board">{this.props.currentQuestion.q}</Link>
-	//               </h2>
-	//               <button className="btn btn-primary" onClick={this.newQuestion}>New Question</button>
-	//             </Display>
-	//             <Attendance audience={this.props.audience} />
-	//           </Display>
-	//           <Display if={!this.props.member.name}>
-	//             <h2>Start the presentation</h2>
-	//             <JoinSpeaker emit={this.props.emit} />
-	//           </Display>
-	//           <Display if={this.props.member && this.props.member.type === 'member'}>
-	//             <h2>A member has already registered as the speaker</h2>
-	//           </Display>
-	//         </Display>
-	//       </div>
-	//     )
-	//   }
-	// })
-	//
-	// module.exports = Speaker;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31686,34 +31423,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = JoinSpeaker;
-
-	// var React = require('react');
-	//
-	// var JoinSpeaker = React.createClass({
-	//
-	//   start() {
-	//     var speakerName = React.findDOMNode(this.refs.name).value;
-	//     var title = React.findDOMNode(this.refs.title).value;
-	//     this.props.emit('start', { name: speakerName, title: title });
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <form action="javascript:void(0)" onSubmit={this.start}>
-	//         <label>Full Name</label>
-	//         <input ref="name" className="form-control" placeholder="enter your full name..." required />
-	//
-	//         <label>Presentation Title</label>
-	//         <input ref="title" className="form-control" placeholder="enter a title for this presentation" required />
-	//
-	//         <button className="btn btn-primary">Join</button>
-	//       </form>
-	//     );
-	//   }
-	//
-	// });
-	//
-	// module.exports = JoinSpeaker;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31817,42 +31526,6 @@
 	})(_react2["default"].Component);
 
 	exports["default"] = Attendance;
-
-	// var React = require('react');
-	//
-	// var Attendance = React.createClass({
-	//
-	//   addMemberRow(member, i) {
-	//     return (
-	//       <tr key={i}>
-	//         <td>{member.name}</td>
-	//         <td>{member.id}</td>
-	//       </tr>
-	//     )
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <div>
-	//         <h2>Attendance - {this.props.audience.length} members</h2>
-	//         <table className="table table-striped">
-	//           <thead>
-	//             <tr>
-	//               <th>Audience Member</th>
-	//               <th>Socket ID</th>
-	//             </tr>
-	//           </thead>
-	//           <tbody>
-	//             {this.props.audience.map(this.addMemberRow)}
-	//           </tbody>
-	//         </table>
-	//       </div>
-	//     )
-	//   }
-	//
-	// });
-	//
-	// module.exports = Attendance;
 	module.exports = exports["default"];
 
 /***/ },
@@ -31929,35 +31602,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Questions;
-
-	// var React = require('react');
-	//
-	// var Questions = React.createClass({
-	//
-	//   ask(question) {
-	//     this.props.emit('ask', question);
-	//   },
-	//
-	//   addQuestion(question, i) {
-	//     return (
-	//       <div key={i} className="col-xs-12 col-sm-6 col-md-3">
-	//         <span onClick={this.ask.bind(null, question)}>{question.q}</span>
-	//       </div>
-	//     )
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <div id="questions" className="row">
-	//         <h2>Questions</h2>
-	//         {this.props.questions.map(this.addQuestion)}
-	//       </div>
-	//     )
-	//   }
-	//
-	// });
-	//
-	// module.exports = Questions;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31997,8 +31641,6 @@
 	var _Ask2 = _interopRequireDefault(_Ask);
 
 	var _reactRouter = __webpack_require__(157);
-
-	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
 	var Audience = (function (_React$Component) {
 	  _inherits(Audience, _React$Component);
@@ -32080,44 +31722,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Audience;
-
-	// var React = require('react')
-	// var Display = require('./Display')
-	// var Join = require('./Join')
-	// var Ask = require('./Ask')
-	// var Link = require('react-router').Link
-	//
-	// var Audience = React.createClass({
-	//   render() {
-	//     return (
-	//       <div>
-	//         <Display if={this.props.status === 'connected'}>
-	//           <Display if={this.props.member.name}>
-	//             <Display if={!this.props.currentQuestion}>
-	//               <h2>Welcome { this.props.member.name }</h2>
-	//               <p>{this.props.audience.length} audience members connected</p>
-	//               <Display if={this.props.member && this.props.member.type === 'member'}>
-	//                 <p>Questions will appear here</p>
-	//               </Display>
-	//             </Display>
-	//             <Display if={this.props.currentQuestion && this.props.member.type === 'member'}>
-	//               <Ask emit={this.props.emit} question={this.props.currentQuestion} />
-	//             </Display>
-	//             <Display if={!this.props.currentQuestion && this.props.member.type === 'speaker'}>
-	//               <Link to="speaker">Ask a question</Link>
-	//             </Display>
-	//           </Display>
-	//           <Display if={!this.props.member.name}>
-	//             <h1>Join the session</h1>
-	//             <Join emit={ this.props.emit } />
-	//           </Display>
-	//         </Display>
-	//       </div>
-	//     )
-	//   }
-	// })
-	//
-	// module.exports = Audience;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32200,30 +31804,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Join;
-
-	// var React = require('react');
-	// var Link = require('react-router').Link
-	// var Join = React.createClass({
-	//   join() {
-	//     var memberName = React.findDOMNode(this.refs.name).value
-	//     this.props.emit('join', { name: memberName });
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <form action="javascript:void(0)" onSubmit={this.join}>
-	//         <label>Full Name</label>
-	//         <input ref="name" className="form-control" placeholder="enter your full name..." required />
-	//         <button className="btn btn-primary">Join</button>
-	//         <Link to="speaker">Start the presentation</Link>
-	//         <Link to="board">Go to the board</Link>
-	//       </form>
-	//     );
-	//   }
-	//
-	// });
-	//
-	// module.exports = Join;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32346,75 +31926,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Ask;
-
-	// var React = require('react');
-	// var Display = require('./Display');
-	//
-	// var Ask = React.createClass({
-	//   getInitialState() {
-	//     return {
-	//       choices: [],
-	//       answer: undefined
-	//     };
-	//   },
-	//
-	//   componentWillMount() {
-	//     this.setUpChoices();
-	//   },
-	//
-	//   componentWillReceiveProps() {
-	//     this.setUpChoices();
-	//   },
-	//
-	//   setUpChoices() {
-	//     var choices = Object.keys(this.props.question);
-	//     choices.shift();
-	//     this.setState({
-	//       choices: choices,
-	//       answer: sessionStorage.answer
-	//     });
-	//   },
-	//
-	//   select(choice) {
-	//     this.setState({ answer: choice });
-	//     sessionStorage.answer = choice;
-	//     this.props.emit('answer', {
-	//       question: this.props.question,
-	//       choice: choice
-	//     });
-	//   },
-	//
-	//   addChoiceButton(choice, i) {
-	//     var buttonTypes = ['primary', 'success', 'warning', 'danger'];
-	//     return (
-	//       <button key={i}
-	//         className={"col-xs-12 col-sm-6 btn btn-" + buttonTypes[i]}
-	//         onClick={this.select.bind(null, choice)}>
-	//         {choice}: {this.props.question[choice]}
-	//       </button>
-	//     )
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <div id="currentQuestion">
-	//         <Display if={this.state.answer}>
-	//           <h3>You answered {this.state.answer}</h3>
-	//           <p>{this.props.question[this.state.answer]}</p>
-	//         </Display>
-	//         <Display if={!this.state.answer}>
-	//           <h2>{this.props.question.q}</h2>
-	//           <div className="row">
-	//             {this.state.choices.map(this.addChoiceButton)}
-	//           </div>
-	//         </Display>
-	//       </div>
-	//     )
-	//   }
-	//
-	// });
-	//
-	// module.exports = Ask;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32526,51 +32037,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Board;
-
-	// var React = require('react')
-	// var Display = require('./Display')
-	// var BarChart = require('react-d3').BarChart
-	// var Link = require('react-router').Link
-	//
-	// var Board = React.createClass({
-	//
-	//   getInitialState() {
-	//     return {
-	//       results: this.props.results
-	//     };
-	//   },
-	//
-	//   barGraphData() {
-	//     var choices = Object.keys(this.state.results)
-	//     return Object.keys(this.state.results).map(function(choice) {
-	//       return {
-	//         label: choice,
-	//         value: choices[choice]
-	//       };
-	//     });
-	//   },
-	//
-	//   render() {
-	//     return (
-	//       <div id="scoreboard">
-	//         {/*<Display if={this.props.status === 'connected' && this.props.currentQuestion}>
-	//           <BarChart data={this.barGraphData()}
-	//                     title={this.props.currentQuestion.q}
-	//                     height={window.innerHeight * 0.6}
-	//                     width={window.innerWidth * 0.9} />
-	//         </Display>*/}
-	//         <Display if={this.props.status === 'connected' && !this.props.currentQuestion && this.props.member.type !== 'speaker'}>
-	//           <h3>Awaiting a Question...</h3>
-	//         </Display>
-	//         <Display if={this.props.status === 'connected' && !this.props.currentQuestion && this.props.member.type === 'speaker'}>
-	//           <Link to="speaker">Ask a question</Link>
-	//         </Display>
-	//       </div>
-	//     )
-	//   }
-	// })
-	//
-	// module.exports = Board;
 	module.exports = exports['default'];
 
 /***/ },
@@ -46014,25 +45480,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Whoops;
-
-	// var React = require('react');
-	// var Router = require('react-router');
-	// var Link = Router.Link;
-	//
-	// var Whoops = React.createClass({
-	//   render() {
-	//     return (
-	//       <div id="not-found">
-	//         <h1>Whoops...</h1>
-	//         <p>We cannot find the page that you have requested.</p>
-	//
-	//          {/* <Link to="home">Return home</Link> */}
-	//       </div>
-	//     )
-	//   }
-	// })
-	//
-	// module.exports = Whoops;
 	module.exports = exports['default'];
 	/* <Link to="home">Return home</Link> */
 
